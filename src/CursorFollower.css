@@ -1,0 +1,6 @@
+.cursor-follower { position:fixed; z-index:2147483647; pointer-events:none; width:0; height:0; }
+.cursor-follower-dot { display:grid; place-items:center; border-radius:50%; translate:-50% -50%; background:var(--cursor-color); color:var(--cursor-color); transition:background-color .3s, color .3s; }
+.cursor-follower-dot.cursor-hover, .cursor-follower-dot.cursor-drag { background:transparent; }
+.cursor-follower-dot svg { width:100%; height:100%; overflow:visible; }
+@media(prefers-reduced-motion:reduce) { .cursor-follower-dot { transition:none; } }
+@media (hover:none), (pointer:coarse) { .cursor-follower { display:none; } }

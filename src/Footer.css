@@ -1,0 +1,43 @@
+.sidequest-footer { background:var(--charcoal); color:var(--cream); padding:clamp(60px,7vw,105px) 0 28px; overflow:hidden; }
+.footer-top { position:relative; display:flex; justify-content:space-between; align-items:flex-start; gap:40px; }
+.footer-top-doodles { position:absolute; inset:0; pointer-events:none; }
+.footer-top-doodles span { position:absolute; display:block; }
+.footer-top-doodles svg { width:100%; height:100%; overflow:visible; }
+.footer-top-smiley { width:48px; height:48px; left:43%; top:12px; color:var(--pink); transform:rotate(-14deg); }
+.footer-top-sparkle { width:34px; height:34px; left:57%; top:76px; color:var(--mint); transform:rotate(12deg); }
+.footer-top-scribble { width:56px; height:42px; right:3%; top:74px; color:var(--lilac); transform:rotate(14deg); }
+.footer-kicker { font-size:10px; letter-spacing:1.8px; color:var(--mint); font-weight:600; }
+.footer-message p { font:700 clamp(28px,3vw,42px)/1.2 var(--font-display); letter-spacing:-1.3px; margin:14px 0 0; }
+.footer-links { display:flex; gap:32px; padding-top:7px; }
+.footer-links a { display:flex; gap:12px; align-items:center; font-size:13px; }
+.footer-links a:hover { color:var(--lemon); }
+.footer-wordmark { display:flex; justify-content:center; align-items:baseline; gap:0; margin:clamp(75px,9vw,135px) 0 45px; width:100%; font-size:var(--footer-wordmark-size, 20vw); }
+.footer-letter { display:block; position:relative; flex:0 0 auto; min-width:0; padding:0 .012em; background:none; border:0; color:var(--lemon); font-size:inherit; cursor:pointer; isolation:isolate; -webkit-tap-highlight-color:transparent; }
+.footer-letter-glyph { display:block; pointer-events:none; font-family:var(--font-display); font-size:inherit; font-weight:800; line-height:1; letter-spacing:-.025em; -webkit-text-stroke:10px var(--soft-white); paint-order:stroke fill; text-shadow:none; }
+.footer-letter-mark { position:absolute; width:15%; height:5px; border-radius:5px; background:var(--letter-accent); left:44%; bottom:-17px; transform:rotate(-15deg); }
+.footer-letter-doodle { position:absolute; width:clamp(30px,5vw,72px); height:clamp(30px,5vw,72px); bottom:100%; margin-bottom:8px; left:50%; translate:-50% 0; color:var(--letter-accent); pointer-events:none; z-index:2; filter:drop-shadow(0 1px 1px #15151514); }
+/* Place each sticker deliberately: above, below, or across the letter face. */
+.footer-letter:nth-child(2) .footer-letter-doodle { bottom:auto; top:100%; margin-bottom:0; }
+.footer-letter:nth-child(3) .footer-letter-doodle { bottom:8%; left:72%; margin-bottom:0; }
+.footer-letter:nth-child(4) .footer-letter-doodle { bottom:42%; left:35%; margin-bottom:0; }
+.footer-letter:nth-child(5) .footer-letter-doodle { bottom:65%; left:65%; margin-bottom:0; }
+.footer-letter:nth-child(6) .footer-letter-doodle { bottom:35%; left:95%; margin-bottom:0; }
+.footer-letter:nth-child(8) .footer-letter-doodle { bottom:9%; left:40%; margin-bottom:0; }
+.footer-letter:nth-child(9) .footer-letter-doodle { bottom:60%; left:70%; margin-bottom:0; }
+.footer-wordmark { margin-bottom:clamp(56px,6vw,86px); }
+.footer-letter-doodle svg { width:100%; height:100%; overflow:visible; }
+.footer-letter.is-active { z-index:3; }
+.footer-letter:focus-visible { outline:2px dashed var(--letter-accent); outline-offset:9px; border-radius:12px; }
+.footer-bottom { display:flex; justify-content:space-between; align-items:center; gap:20px; padding-top:27px; border-top:1px solid #fff9ef26; font-size:11px; color:#bbb8af; }
+.footer-bottom a { display:flex; align-items:center; gap:8px; color:var(--cream); }
+.footer-bottom a:hover { color:var(--lemon); }
+@media(max-width:1100px) { .footer-letter-glyph { -webkit-text-stroke-width:6px; }.footer-top-smiley { top:85px; left:35%; } }
+@media(max-width:750px) { .footer-links { gap:18px; }.footer-links a { font-size:12px; gap:6px; }.footer-letter-glyph { -webkit-text-stroke-width:4px; } }
+@media(max-width:650px) {
+  .footer-top { flex-direction:column; gap:30px; }.footer-links { flex-wrap:wrap; gap:24px; }.footer-wordmark { margin:75px 0 42px; }
+  .footer-letter-glyph { -webkit-text-stroke-width:2px; }
+  .footer-wordmark { margin-bottom:56px; }
+  .footer-top-smiley { width:36px; height:36px; top:14px; left:auto; right:3%; }.footer-top-sparkle { width:25px; height:25px; top:64px; left:auto; right:17%; }.footer-top-scribble { width:34px; height:26px; top:124px; right:6%; }
+  .footer-letter { min-height:48px; }.footer-letter-mark { height:3px; bottom:-12px; pointer-events:none; }.footer-letter-doodle { width:30px; height:30px; }
+  .footer-bottom { flex-wrap:wrap; gap:18px; font-size:10px; }.footer-bottom > span:nth-child(2) { display:none; }
+}

@@ -1,0 +1,53 @@
+.experiences-section { background:var(--soft-white); color:var(--charcoal); padding-block:clamp(70px,8vw,115px); }
+.experiences-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:45px; margin-bottom:48px; }
+.experiences-heading h2 { max-width:740px; font-size:clamp(45px,5vw,70px); }
+.experiences-heading p { max-width:310px; margin:0 0 5px; font-size:16px; line-height:1.8; color:var(--text-muted); }
+.experience-track { display:flex; gap:28px; overflow-x:auto; padding:10px 0 16px; scrollbar-width:none; }
+.experience-track::-webkit-scrollbar { display:none; }
+.experience-track > .experience-card { flex:0 0 calc((100% - 56px) / 3); }
+.experience-controls { display:flex; align-items:center; justify-content:flex-end; gap:12px; margin-top:20px; }
+.experience-control-arrow { display:grid; place-items:center; width:44px; height:44px; border:1px solid var(--charcoal); border-radius:50%; background:transparent; color:var(--charcoal); }
+.experience-control-arrow:hover:not(:disabled) { background:var(--cream); }
+.experience-control-arrow:disabled { opacity:.3; cursor:default; }
+.experience-dots { display:flex; align-items:center; }
+.experience-dot { display:grid; place-items:center; width:30px; height:44px; border:0; padding:0; background:transparent; }
+.experience-dot span { width:13px; height:13px; border:2px solid var(--dot-color); border-radius:50%; transition:background-color .2s; }
+.experience-dot[aria-current="step"] span { background:var(--dot-color); }
+.experience-dot:focus-visible, .experience-control-arrow:focus-visible { outline:2px solid var(--charcoal); outline-offset:3px; }
+.experience-track:focus-visible { outline:3px solid var(--pink-ink); outline-offset:8px; border-radius:var(--radius-card); }
+.experience-card { grid-column:span 2; display:flex; flex-direction:column; align-items:stretch; appearance:none; padding:0; border:1px solid #e6e0d5; border-radius:var(--radius-card); overflow:hidden; background:var(--cream); color:var(--charcoal); text-align:left; min-width:0; font-size:0; line-height:0; }
+.experience-card:nth-last-child(-n+2) { grid-column:span 3; }
+.experience-card:focus-visible { outline-color:var(--pink-ink); }
+.experience-image { position:relative; width:100%; height:270px; overflow:hidden; background:var(--experience-color); }
+.experience-image img { position:absolute; inset:0; display:block; width:100%; height:100%; min-width:100%; min-height:100%; object-fit:cover; object-position:center; }
+.experience-category { position:absolute; top:18px; left:18px; padding:8px 13px; background:var(--experience-color); border-radius:999px; font-size:11px; font-weight:600; }
+.experience-spark { position:absolute; bottom:14px; right:18px; color:var(--experience-color); font-size:46px; line-height:1; pointer-events:none; }
+.experience-body { padding:24px; padding-right:55px; position:relative; }
+.experience-body h3 { font:800 clamp(23px,2.1vw,31px)/1.1 var(--font-display); letter-spacing:-1px; margin:0 0 19px; }
+.experience-meta { display:flex; flex-direction:column; gap:10px; color:var(--text-muted); font-size:12px; line-height:1.4; }
+.experience-meta > span { display:flex; align-items:center; gap:8px; }
+.experience-meta svg { flex-shrink:0; }
+.experience-arrow { position:absolute; bottom:25px; right:22px; }
+.experience-preview-note { margin:24px 0 0; font-size:12px; color:var(--text-muted); line-height:1.7; }
+.experience-fallback { display:flex; height:100%; align-items:center; justify-content:center; flex-direction:column; gap:10px; font:600 18px var(--font-display); }
+.experience-fallback > span:first-child { font-size:100px; line-height:1; }
+@media (min-width:651px) and (max-width:1050px) {
+  .experience-track { gap:20px; }
+  .experience-track > .experience-card { flex-basis:calc((100% - 20px) / 2); }
+  .experience-image { height:215px; }
+  .experience-body { padding:20px; padding-right:37px; }
+  .experience-body h3 { font-size:23px; }
+  .experience-arrow { right:14px; bottom:20px; }
+}
+@media (max-width:650px) {
+  .experiences-heading { display:block; margin-bottom:30px; }
+  .experiences-heading h2 { font-size:45px; }
+  .experiences-heading p { margin-top:22px; font-size:15px; }
+  .experience-track { gap:18px; padding:10px 24px 22px; margin-inline:-24px; }
+  .experience-track > .experience-card { flex:0 0 86%; }
+  .experience-controls { gap:6px; }
+  .experience-dot { width:27px; }
+  .experience-image { height:260px; }
+  .experience-body { padding:23px; padding-right:47px; }
+  .experience-body h3 { font-size:27px; }
+}
