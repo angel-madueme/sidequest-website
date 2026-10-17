@@ -59,7 +59,7 @@ export default function HowItWorks() {
   const reduced = useReducedMotion();
   return <section className="how-section" id="how-it-works" aria-labelledby="how-heading">
     <div className="content-width how-content">
-      <header className="how-heading"><span className="eyebrow">HOW IT WORKS</span><h2 id="how-heading">Making plans<br />should feel easy.</h2><p>Find something fun, pick your vibe, invite your people, and go.</p></header>
+      <header className="how-heading"><span className="eyebrow">HOW IT WORKS</span><h2 id="how-heading"><span className="motion-line">Making plans</span><br /><span className="motion-line">should feel easy.</span></h2><p>Find something fun, pick your vibe, invite your people, and go.</p></header>
       <motion.svg className="how-doodle how-doodle-star" viewBox="0 0 100 100" aria-hidden="true" animate={reduced ? {} : { y: [0, -7, 0], rotate: [-8, 5, -8] }} transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}><ShapeArtwork kind="sparkle" /></motion.svg>
       <motion.svg className="how-doodle how-doodle-squiggle" viewBox="0 0 100 70" aria-hidden="true" animate={reduced ? {} : { x: [0, 6, 0], y: [0, 4, 0] }} transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut' }}><path d="M8 51C19 0 41 1 34 39S54 77 59 30 84 7 92 26" fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" /></motion.svg>
       <ol className="how-fan">{steps.map((step, index) => <StepCard key={step.title} step={step} index={index} />)}</ol>

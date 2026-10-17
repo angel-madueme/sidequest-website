@@ -16,7 +16,7 @@ export default function MoodRecommendation({ recommendation: item, accent = item
   const [failed, setFailed] = useState(false);
   const reduced = useReducedMotion();
   return <motion.article className="vibe-recommendation" style={{ '--vibe-accent': `var(--${accent})` }}
-    initial={reduced ? { opacity: 0 } : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reduced ? 0 : .25 }} aria-labelledby="vibe-title">
+    initial={reduced ? { opacity: 1 } : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: reduced ? 0 : -4 }} transition={{ duration: reduced ? 0 : .25 }} aria-labelledby="vibe-title">
     <div className="vibe-copy">
       <span className="vibe-kicker">{item.kicker}</span>
       <h3 id="vibe-title">{item.title}</h3>
@@ -24,7 +24,7 @@ export default function MoodRecommendation({ recommendation: item, accent = item
       <div className="vibe-meta"><span><CalendarDays size={18} aria-hidden="true" />{item.time}</span><span><MapPin size={18} aria-hidden="true" />{item.location}</span></div>
       <motion.button className="primary-button" type="button" whileHover={reduced ? {} : { scale: 1.02 }} whileTap={reduced ? {} : { scale: .98 }} onClick={() => onSelect({ ...item, detail: `${item.description} ${item.time} · ${item.location}.` })}>See this SideQuest<span className="cta-arrow-circle"><ArrowUpRight size={20} aria-hidden="true" /></span></motion.button>
     </div>
-    <div className="vibe-image">{failed ? <div className="vibe-image-fallback"><GraphicShape kind="clover" /><span>{item.vibe}</span></div> : <img {...photoProps(item.image, '(max-width: 750px) 90vw, 50vw')} alt={item.alt} onError={() => setFailed(true)} />}</div>
+    <div className="vibe-image">{failed ? <div className="vibe-image-fallback"><GraphicShape kind="clover" /><span>{item.vibe}</span></div> : <motion.img initial={{ scale: reduced ? 1 : 1.025 }} animate={{ scale: 1 }} transition={{ duration: reduced ? 0 : .4 }} {...photoProps(item.image, '(max-width: 750px) 90vw, 50vw')} alt={item.alt} onError={() => setFailed(true)} />}</div>
     <GraphicShape kind="sparkle" className="vibe-panel-spark" />
   </motion.article>;
 }

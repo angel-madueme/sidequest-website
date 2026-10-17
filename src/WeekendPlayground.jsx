@@ -64,7 +64,7 @@ export default function WeekendPlayground() {
     return () => observer.disconnect();
   }, []);
   return <section className="weekend-section" aria-labelledby="weekend-heading"><div className="content-width">
-    <header className="weekend-heading"><span className="eyebrow">A LITTLE ROOM TO PLAY</span><h2 id="weekend-heading">So… what are we doing<br />this weekend?</h2><p>Grab a plan. Move it around. See what feels right.</p></header>
+    <header className="weekend-heading"><span className="eyebrow">A LITTLE ROOM TO PLAY</span><h2 id="weekend-heading"><span className="motion-line">So… what are we doing</span><br /><span className="motion-line">this weekend?</span></h2><p>Grab a plan. Move it around. See what feels right.</p></header>
     <div className="weekend-table" ref={board}>
       <GraphicShape kind="clover" className="table-doodle table-clover" /><GraphicShape kind="sparkle" className="table-doodle table-sparkle" />
       <svg className="table-doodle table-scribble" viewBox="0 0 100 60" aria-hidden="true"><path d="M5 41Q28-5 33 30T62 27T94 20" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" /></svg>

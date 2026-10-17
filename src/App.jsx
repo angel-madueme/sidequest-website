@@ -7,7 +7,7 @@ import GraphicShape from './GraphicShape.jsx';
 import HowItWorks from './HowItWorks.jsx';
 import React, { useState, useRef } from 'react';
 
-import { motion, MotionConfig, useReducedMotion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion, AnimatePresence, MotionConfig, useReducedMotion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ArrowUpRight, ArrowRight, Menu, X, MapPin, Utensils, Music2, Dices, Palette, Trees, Shuffle, Check } from 'lucide-react';
 
 
@@ -75,17 +75,17 @@ function HeroCollage({ onSelect }) {
 }
 
 function Hero({ onSelect }) {
-  return <section className="hero"><div className="hero-inner content-width"><div className="hero-copy"><h1>Your weekend<br />needs a<br /><span className="headline-accent">SideQuest.<svg viewBox="0 0 510 35" preserveAspectRatio="none" aria-hidden="true"><path d="M6 19Q125-1 258 14T501 11M39 29Q239 11 447 25" /></svg></span></h1><div className="hero-description"><p>Find interesting things happening around you, make a plan, grab your people and go.</p><div className="hero-cta"><PrimaryButton>Find a SideQuest</PrimaryButton></div></div></div><HeroCollage onSelect={onSelect} /></div></section>;
+  return <section className="hero"><div className="hero-inner content-width"><div className="hero-copy"><h1><span className="motion-line">Your weekend</span><br /><span className="motion-line">needs a</span><br /><span className="headline-accent motion-line">SideQuest.<svg viewBox="0 0 510 35" preserveAspectRatio="none" aria-hidden="true"><path d="M6 19Q125-1 258 14T501 11M39 29Q239 11 447 25" /></svg></span></h1><div className="hero-description"><p>Find interesting things happening around you, make a plan, grab your people and go.</p><div className="hero-cta"><PrimaryButton>Find a SideQuest</PrimaryButton></div></div></div><HeroCollage onSelect={onSelect} /></div></section>;
 }
 
 function WavyMarquee() {
   const reduced = useReducedMotion();
-  return <div className="marquee" aria-label="Find, plan, explore, vibe, repeat"><svg viewBox="0 0 1440 190" preserveAspectRatio="none" aria-hidden="true"><defs><path id="ribbon-path" d="M-1450 105 C-1200 20 -970 20 -730 105 S-240 190 10 105 S490 20 730 105 S1220 190 1460 105 S1940 20 2180 105 S2670 190 2910 105" /></defs><use href="#ribbon-path" fill="none" stroke="var(--lemon)" strokeWidth="86" /><text dy="12"><textPath href="#ribbon-path" startOffset="0">{Array.from({ length: 9 }, (_, i) => <tspan key={i} textLength="900" lengthAdjust="spacing"> FIND <tspan fill="var(--lilac)">✳</tspan> PLAN · EXPLORE <tspan fill="var(--lilac)">✳</tspan> VIBE · REPEAT ·</tspan>)}{!reduced && <animate attributeName="startOffset" from="0" to="-900" dur="40s" repeatCount="indefinite" />}</textPath></text></svg></div>;
+  return <div className="marquee" aria-label="Find, plan, explore, vibe, repeat"><svg viewBox="0 0 1440 230" preserveAspectRatio="none" aria-hidden="true"><defs><path id="ribbon-path" d="M-1450 105 C-1200 20 -970 20 -730 105 S-240 190 10 105 S490 20 730 105 S1220 190 1460 105 S1940 20 2180 105 S2670 190 2910 105" /></defs><path d="M-1450 105 C-1200 20 -970 20 -730 105 S-240 190 10 105 S490 20 730 105 S1220 190 1460 105 S1940 20 2180 105 S2670 190 2910 105 L2910 250 L-1450 250Z" fill="var(--cream)" /><use href="#ribbon-path" fill="none" stroke="var(--lemon)" strokeWidth="86" /><text dy="12"><textPath href="#ribbon-path" startOffset="0">{Array.from({ length: 9 }, (_, i) => <tspan key={i} textLength="900" lengthAdjust="spacing"> FIND <tspan fill="var(--lilac)">✳</tspan> PLAN · EXPLORE <tspan fill="var(--lilac)">✳</tspan> VIBE · REPEAT ·</tspan>)}{!reduced && <animate attributeName="startOffset" from="0" to="-900" dur="40s" repeatCount="indefinite" />}</textPath></text></svg></div>;
 }
 
 function MoodPill({ mood, selected, onClick }) {
   const Icon = mood.icon;
-  return <motion.button className={`mood-pill ${selected ? 'selected' : ''}`} style={{ '--mood-color': `var(--${mood.color})` }} aria-pressed={selected} onClick={onClick} whileHover={{ scale: 1.045, y: -3 }} whileTap={{ scale: .96 }} transition={spring}><Icon size={21} strokeWidth={1.6} aria-hidden="true" />{mood.name}{selected && <Check size={16} aria-hidden="true" />}</motion.button>;
+  return <motion.button className={`mood-pill ${selected ? 'selected' : ''}`} style={{ '--mood-color': `var(--${mood.color})` }} aria-pressed={selected} onClick={onClick} whileHover={{ scale: 1.045, y: -3 }} whileTap={{ scale: .96 }} transition={spring}><Icon size={18} strokeWidth={1.6} aria-hidden="true" />{mood.name}{selected && <Check size={14} aria-hidden="true" />}</motion.button>;
 }
 
 function DetailDialog({ selection, onClose }) {
@@ -112,9 +112,9 @@ function MoodSection({ onSelect }) {
     } else setRecommendation(recommendations.find(item => item.vibe === mood.name));
   }
   return <section className="mood-section" id="moods"><div className="content-width mood-content">
-    <div className="mood-heading"><div><span className="eyebrow">PICK YOUR VIBE</span><h2>What are you<br />in the mood for?</h2></div><div className="mood-aside"><span className="splash mood-asterisk" aria-hidden="true">✳</span><p>Big night? Slow Sunday?<br />There’s a SideQuest for that.</p></div></div>
+    <div className="mood-heading"><div><span className="eyebrow">PICK YOUR VIBE</span><h2><span className="motion-line">What are you</span><br /><span className="motion-line">in the mood for?</span></h2></div><div className="mood-aside"><span className="splash mood-asterisk" aria-hidden="true">✳</span><p>Big night? Slow Sunday?<br />There’s a SideQuest for that.</p></div></div>
     <div className="mood-pills" aria-label="Choose a category">{moods.map(mood => <MoodPill key={mood.name} mood={mood} selected={selected === mood.name} onClick={() => pick(mood)} />)}</div>
-    <div className="vibe-panel-wrap"><MoodRecommendation key={recommendation.vibe} recommendation={recommendation} accent={moods.find(mood => mood.name === selected).color} onSelect={onSelect} /></div>
+    <div className="vibe-panel-wrap"><AnimatePresence mode="wait" initial={false}><MoodRecommendation key={recommendation.vibe} recommendation={recommendation} accent={moods.find(mood => mood.name === selected).color} onSelect={onSelect} /></AnimatePresence></div>
     <p className="vibe-announcement" aria-live="polite" aria-atomic="true">{recommendation.vibe}: {recommendation.title}</p>
   </div></section>;
 }

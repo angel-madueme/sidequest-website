@@ -48,7 +48,7 @@ export default function Experiences({ onSelect }) {
     return () => observer.disconnect();
   }, []);
   return <section id="experiences" className="experiences-section" aria-labelledby="experiences-heading"><div className="content-width">
-    <header className="experiences-heading"><GraphicShape kind="clover" className="experience-heading-shape" /><h2 id="experiences-heading">Your next SideQuest<br />is waiting.</h2><p>From low-key hangs to ‘how did we end up here?’ kind of nights.</p></header>
+    <header className="experiences-heading"><GraphicShape kind="clover" className="experience-heading-shape" /><h2 id="experiences-heading"><span className="motion-line">Your next SideQuest</span><br /><span className="motion-line">is waiting.</span></h2><p>From low-key hangs to ‘how did we end up here?’ kind of nights.</p></header>
     <div ref={track} id="experience-carousel" className="experience-track" role="region" aria-roledescription="carousel" aria-label="Explore six experiences" tabIndex={0} onScroll={syncPosition} onKeyDown={event => {
       if (event.target !== event.currentTarget) return;
       if (['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) {
